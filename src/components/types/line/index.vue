@@ -1,15 +1,13 @@
 <template>
   <b-container tag="form" id="lines" @submit.prevent>
     <b-row>
-      <b-col>
-        <h3 class="mb-3">Skapa karaktär</h3>
-        <createCharacter />
+      <b-col lg="6">
         <h3 class="mb-3">Skapa replikerna</h3>
-        <createLines />
+        <create />
       </b-col>
-      <b-col>
-        <h3 class="mb-3">Karaktärer</h3>
-        <listCharacter />
+      <b-col lg="6">
+        <h3 class="mb-3">Repliker</h3>
+        <list />
       </b-col>
     </b-row>
   </b-container>
@@ -20,9 +18,8 @@ import { mapState, mapActions } from "vuex";
 export default {
   name: "Lines",
   components: {
-    createCharacter: () => import("./types/createCharacter"),
-    listCharacter: () => import("./types/listCharacter"),
-    createLines: () => import("./types/createLines")
+    create: () => import(`./create`),
+    list: () => import(`./list`)
   },
   data: () => ({
     character: {
@@ -32,7 +29,7 @@ export default {
   }),
   computed: {
     ...mapState({
-      characters: state => state.characters
+      lines: state => state.lines
     })
   },
   methods: {

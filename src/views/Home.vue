@@ -6,15 +6,12 @@
         <p class="lead">Hjälp för att läsa och lära sig repliker.</p>
       </b-container>
     </b-jumbotron>
-    <lines />
+    <router-view></router-view>
   </article>
 </template>
 
 <script>
 export default {
-  name: "home",
-  components: {
-    lines: () => import("@/components/lines.vue")
-  }
+  name: "home"
 };
 </script>

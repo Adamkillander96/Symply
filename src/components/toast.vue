@@ -1,10 +1,7 @@
 <template>
-  <b-toast
-    id="toast"
-    title="BootstrapVue"
-    static
-    no-auto-hide
-  >Hello, world! This is a toast message.</b-toast>
+  <b-toast id="toast" title="BootstrapVue" static no-auto-hide
+    >Hello, world! This is a toast message.</b-toast
+  >
 </template>
 
 <script>

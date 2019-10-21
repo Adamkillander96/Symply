@@ -1,5 +1,17 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
+  <article class="about">
+    <b-jumbotron>
+      <b-container>
+        <h1>Symply</h1>
+        <p class="lead">Text text</p>
+      </b-container>
+    </b-jumbotron>
+    <lines />
+  </article>
 </template>
+
+<script>
+export default {
+  name: "reading"
+};
+</script>
