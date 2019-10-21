@@ -21,7 +21,7 @@
       rows="3"
       max-rows="6"
     ></b-form-textarea>
-    <b-btn variant="info" @click="sendLine">
+    <b-btn variant="warning" @click="sendLine">
       <i class="fad fa-layer-plus mr-2"></i>Skapa replik
     </b-btn>
   </b-form-group>

@@ -1,9 +1,11 @@
 <template>
-  <b-list-group>
+  <b-list-group v-if="characters[0]">
     <b-list-group-item v-for="character in characters" :key="character.id">
-      {{ character.name }}, {{ character.real }}
+      <i class="fa-fw fad" :class="[ character.real ? 'fa-user' : 'fa-robot' ]"></i>
+      {{ character.name }} ({{ character.voice }})
     </b-list-group-item>
   </b-list-group>
+  <b-alert v-else show variant="info">Det finns inga karaktärer!</b-alert>
 </template>
 
 <script>

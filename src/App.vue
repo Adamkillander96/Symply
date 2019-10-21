@@ -20,8 +20,7 @@ export default {
 
 body {
   font-family: "Open Sans", sans-serif !important;
-
-  background: $pink;
+  background: $indigo;
 }
 h1,
 h2,

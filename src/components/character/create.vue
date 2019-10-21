@@ -1,43 +1,35 @@
 <template>
-  <div>
-    <b-form-input
-      v-model="character.name"
-      placeholder="Namn"
-      class="mb-3"
-    ></b-form-input>
+  <b-modal id="characterCreation" title="Skapa karaktär" hide-footer>
+    <b-form-input v-model="character.name" placeholder="Namn" class="mb-3"></b-form-input>
     <b-form-checkbox v-model="character.real" size="lg" class="mb-3" switch>
-      <span>Människa</span>
+      <span>Ska läsas upp av en person</span>
     </b-form-checkbox>
     <b-form-select v-model="character.voice" class="mb-3">
-      <option :value="null">Välj en Röst</option>
-      <option value="Swedish Female">Kvinnlig röst</option>
+      <option value="Swedish Female" selected>Kvinnlig röst</option>
       <option value="Swedish Male">Manlig röst</option>
     </b-form-select>
     <b-button
-      :disabled="character.name === ''"
+      :disabled="character.name === '' && character.voice !== null"
       block
-      variant="info"
+      variant="success"
       @click="sendCharacter()"
     >
-      <i class="fad fa-user-plus mr-2"></i>Lägg till
+      <i class="fad fa-user-plus mr-2"></i> Lägg till
     </b-button>
-  </div>
+  </b-modal>
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex";
+import { mapActions } from "vuex";
 export default {
   name: "createCharacter",
   data: () => ({
     character: {
       name: "",
-      voice: null,
-      real: false
+      real: false,
+      voice: "Swedish Female"
     }
   }),
-  computed: {
-    ...mapState(["characters"])
-  },
   methods: {
     ...mapActions(["createCharacter"]),
     sendCharacter() {
