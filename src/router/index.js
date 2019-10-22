@@ -11,6 +11,14 @@ const routes = [
 		component: Home,
 		children: [
 			{
+				path: '/create-project',
+				name: 'createprojects',
+				component: () => import('../components/project/index'),
+				meta: {
+					type: 'project'
+				}
+			},
+			{
 				path: '/create-characters',
 				name: 'createcharacters',
 				component: () => import('../components/character/index'),

@@ -1,17 +1,17 @@
-import Vue from "vue";
-import App from "./App.vue";
-import router from "./router";
-import store from "./store";
-import "./registerServiceWorker";
+import Vue from 'vue'
+import App from './App.vue'
+import router from './router'
+import store from './store'
+import './registerServiceWorker'
 
-import BootstrapVue from "bootstrap-vue";
+import BootstrapVue from 'bootstrap-vue'
 
-Vue.use(BootstrapVue);
+Vue.use(BootstrapVue)
 
-Vue.config.productionTip = false;
+Vue.config.productionTip = false
 
 new Vue({
-  router,
-  store,
-  render: h => h(App)
-}).$mount("#symply");
+	router,
+	store,
+	render: h => h(App)
+}).$mount('#symply')

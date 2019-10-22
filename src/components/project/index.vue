@@ -1,12 +1,12 @@
 <template>
-	<b-container tag="form" id="character" @submit.prevent>
+	<b-container tag="form" id="project" @submit.prevent>
 		<create></create>
 		<b-row class="justify-content-center">
 			<b-col lg="6">
-				<h3 class="mb-3">Karaktärer</h3>
+				<h3 class="mb-3">Projekt</h3>
 				<list />
-				<b-button v-b-modal.characterCreation variant="success" block>
-					<i class="fad fa-user-plus mr-2"></i>Skapa karaktär
+				<b-button v-b-modal.projectCreation variant="success" block>
+					<i class="fad fa-theater-masks mr-2"></i>Skapa project
 				</b-button>
 			</b-col>
 		</b-row>
@@ -15,7 +15,7 @@
 
 <script>
 export default {
-	name: 'Character',
+	name: 'Project',
 	components: {
 		create: () => import(`./create`),
 		list: () => import(`./list`)
