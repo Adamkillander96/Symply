@@ -8,10 +8,16 @@ const routes = [
 	{
 		path: '/',
 		name: 'home',
-		component: Home,
+		component: Home
+	},
+	{
+		path: '/dashboard',
+		name: 'Dashboard',
+		component: () =>
+			import(/* webpackChunkName: "dashboard" */ '../views/Dashboard.vue'),
 		children: [
 			{
-				path: '/create-project',
+				path: 'project',
 				name: 'createprojects',
 				component: () => import('../components/project/index'),
 				meta: {
@@ -19,7 +25,7 @@ const routes = [
 				}
 			},
 			{
-				path: '/create-characters',
+				path: 'characters',
 				name: 'createcharacters',
 				component: () => import('../components/character/index'),
 				meta: {
@@ -27,7 +33,7 @@ const routes = [
 				}
 			},
 			{
-				path: '/create-lines',
+				path: 'lines',
 				name: 'createlines',
 				component: () => import('../components/line/index'),
 				meta: {
@@ -35,12 +41,6 @@ const routes = [
 				}
 			}
 		]
-	},
-	{
-		path: '/about',
-		name: 'about',
-		component: () =>
-			import(/* webpackChunkName: "about" */ '../views/About.vue')
 	}
 ]
 
