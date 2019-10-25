@@ -17,8 +17,8 @@ const routes = [
 			import(/* webpackChunkName: "dashboard" */ '../views/Dashboard.vue'),
 		children: [
 			{
-				path: 'project',
-				name: 'createprojects',
+				path: 'projects',
+				name: 'projects',
 				component: () => import('../components/project/index'),
 				meta: {
 					type: 'project'
@@ -26,7 +26,7 @@ const routes = [
 			},
 			{
 				path: 'characters',
-				name: 'createcharacters',
+				name: 'characters',
 				component: () => import('../components/character/index'),
 				meta: {
 					type: 'character'
@@ -34,19 +34,26 @@ const routes = [
 			},
 			{
 				path: 'lines',
-				name: 'createlines',
+				name: 'lines',
 				component: () => import('../components/line/index'),
 				meta: {
 					type: 'line'
 				}
 			}
 		]
+	},
+	{
+		path: '/play',
+		name: 'Play',
+		component: () => import(/* webpackChunkName: "play" */ '../views/Play.vue')
 	}
 ]
 
 const router = new VueRouter({
 	mode: 'history',
 	base: process.env.BASE_URL,
+	linkActiveClass: 'active',
+	linkExactActiveClass: '',
 	routes
 })
 
