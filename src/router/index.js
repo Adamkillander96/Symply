@@ -33,6 +33,14 @@ const routes = [
 				}
 			},
 			{
+				path: 'scenes',
+				name: 'scenes',
+				component: () => import('../components/scenes/index'),
+				meta: {
+					type: 'scenes'
+				}
+			},
+			{
 				path: 'lines',
 				name: 'lines',
 				component: () => import('../components/line/index'),

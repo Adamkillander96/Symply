@@ -2,11 +2,23 @@
 	<b-form-group>
 		<b-form-select
 			class="mb-3"
-			v-model="selected"
+			v-model="selectedScene"
+			:options="scenes"
+			value-field="name"
+			text-field="name"
+			id="select-scene"
+		>
+			<template v-slot:first>
+				<option :value="null">Scene...</option>
+			</template>
+		</b-form-select>
+		<b-form-select
+			class="mb-3"
+			v-model="selectedActor"
 			:options="characters"
 			value-field="name"
 			text-field="name"
-			id="select"
+			id="select-actor"
 		>
 			<template v-slot:first>
 				<option :value="null">Karaktär...</option>
@@ -32,17 +44,19 @@ import { mapState, mapActions } from 'vuex'
 export default {
 	name: 'createCharacter',
 	data: () => ({
-		selected: null,
+		selectedScene: null,
+		selectedActor: null,
 		text: ''
 	}),
 	computed: {
-		...mapState(['lines', 'characters'])
+		...mapState(['lines', 'characters', 'scenes'])
 	},
 	methods: {
 		...mapActions(['createLine']),
 		sendLine() {
 			let newLine = {
-				name: this.selected,
+				scene: this.selectedScene,
+				name: this.selectedActor,
 				text: this.text
 			}
 

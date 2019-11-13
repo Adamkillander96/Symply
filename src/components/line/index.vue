@@ -10,6 +10,14 @@
 				<list />
 			</b-col>
 		</b-row>
+		<b-row class="test-center">
+			<b-col offset-lg="3" lg="6">
+				<b-button variant="success" size="lg">
+					<i class="fad fa-save"></i>
+					Spara
+				</b-button>
+			</b-col>
+		</b-row>
 	</b-container>
 </template>
 
