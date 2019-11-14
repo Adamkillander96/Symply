@@ -1,20 +1,12 @@
 <template>
 	<b-container tag="form" id="lines" @submit.prevent>
-		<b-row>
+		<create></create>
+		<b-row class="justify-content-center">
 			<b-col lg="6">
 				<h3 class="mb-3">Skapa replikerna</h3>
-				<create />
-			</b-col>
-			<b-col lg="6">
-				<h3 class="mb-3">Repliker</h3>
 				<list />
-			</b-col>
-		</b-row>
-		<b-row class="test-center">
-			<b-col offset-lg="3" lg="6">
-				<b-button variant="success" size="lg">
-					<i class="fad fa-save"></i>
-					Spara
+				<b-button v-b-modal.lineCreation variant="success" block>
+					<i class="fad fa-comments mr-2"></i>Skapa repliker
 				</b-button>
 			</b-col>
 		</b-row>
@@ -29,12 +21,6 @@ export default {
 		create: () => import(`./create`),
 		list: () => import(`./list`)
 	},
-	data: () => ({
-		character: {
-			name: '',
-			real: false
-		}
-	}),
 	computed: {
 		...mapState({
 			lines: state => state.lines

@@ -7,18 +7,21 @@ Vue.use(Vuex)
 export default new Vuex.Store({
 	state: {
 		project: null,
+		projects: [],
 		scenes: [],
 		characters: [],
 		lines: [],
-		projects: [],
 		toast: undefined
 	},
 	mutations: {
 		setProject(state, data) {
 			state.project = data
 		},
+		setProjects(state, data) {
+			state.projects.push(data)
+		},
 		setScene(state, data) {
-			state.scenes.push(data)
+			state.project.scenes.push(data)
 		},
 		setCharacter(state, data) {
 			state.characters.push(data)
@@ -33,6 +36,9 @@ export default new Vuex.Store({
 	actions: {
 		createProject({ commit }, data) {
 			commit('setProject', data)
+		},
+		createProjects({ commit }, data) {
+			commit('setProjects', data)
 		},
 		createScene({ commit }, data) {
 			commit('setScene', data)

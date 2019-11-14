@@ -17,7 +17,8 @@ export default {
 		project: {
 			name: '',
 			description: '',
-			actors: []
+			actors: [],
+			scenes: []
 		}
 	}),
 	computed: {
@@ -32,6 +33,7 @@ export default {
 				description: '',
 				actors: []
 			}
+			this.$router.push({ name: 'scenes' })
 		}
 	}
 }

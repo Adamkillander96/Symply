@@ -1,6 +1,10 @@
 <template>
-	<b-list-group class="mb-5" v-if="scenes[0]">
-		<b-list-group-item v-for="scene in scenes" :key="scene.id" class="flex-column align-items-start">
+	<b-list-group class="mb-5" v-if="project.scenes[0]">
+		<b-list-group-item
+			v-for="scene in project.scenes"
+			:key="scene.id"
+			class="flex-column align-items-start"
+		>
 			<div class="d-flex w-100 justify-content-between">
 				<h4 class="mb-1">{{ scene.name }}</h4>
 				<small>{{ scene.actors.length }} actors</small>
@@ -17,7 +21,7 @@ export default {
 	name: 'listScenes',
 	data: () => ({}),
 	computed: {
-		...mapState(['scenes'])
+		...mapState(['project'])
 	},
 	methods: {
 		...mapActions([''])

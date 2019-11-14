@@ -1,10 +1,6 @@
 <template>
 	<b-modal id="characterCreation" title="Skapa karaktär" hide-footer>
-		<b-form-input
-			v-model="character.name"
-			placeholder="Namn"
-			class="mb-3"
-		></b-form-input>
+		<b-form-input v-model="character.name" placeholder="Namn" class="mb-3"></b-form-input>
 		<b-form-checkbox v-model="character.real" size="lg" class="mb-3" switch>
 			<span>Ska läsas upp av en person</span>
 		</b-form-checkbox>
@@ -37,15 +33,11 @@ export default {
 	methods: {
 		...mapActions(['createCharacter']),
 		sendCharacter() {
-			let newCharacter = {
-				name: this.character.name,
-				real: this.character.real
-			}
-
-			this.createCharacter(newCharacter)
+			this.createCharacter(this.character)
 			this.character = {
 				name: '',
-				real: false
+				real: false,
+				voice: 'Swedish Female'
 			}
 		}
 	}

@@ -26,7 +26,11 @@ export default {
 		})
 	},
 	methods: {
-		...mapActions([''])
+		...mapActions(['editProject']),
+		select(project) {
+			this.editProject(project)
+			this.$router.push({ name: 'scenes' })
+		}
 	}
 }
 </script>
