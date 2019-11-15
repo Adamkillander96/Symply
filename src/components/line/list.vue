@@ -15,13 +15,11 @@
 						<p>{{ line.text }}</p>
 					</b-list-group-item>
 				</b-list-group>
-				<create></create>
-			</b-card-body>
-			<b-card-footer>
+				<create :scene="scene" :index="index"></create>
 				<b-button v-b-modal.lineCreation variant="success" class="my-3" block>
 					<i class="fad fa-comments mr-2"></i>Skapa repliker
 				</b-button>
-			</b-card-footer>
+			</b-card-body>
 		</b-collapse>
 	</b-card>
 </template>
