@@ -9,6 +9,7 @@ export default new Vuex.Store({
 		project: null,
 		projects: [],
 		scenes: [],
+		selectedScene: null,
 		characters: [],
 		lines: [],
 		toast: undefined
@@ -22,6 +23,9 @@ export default new Vuex.Store({
 		},
 		setScene(state, data) {
 			state.project.scenes.push(data)
+		},
+		setSelectScene(state, data) {
+			state.selectedScene = data
 		},
 		setCharacter(state, data) {
 			state.characters.push(data)
@@ -42,6 +46,13 @@ export default new Vuex.Store({
 		},
 		createScene({ commit }, data) {
 			commit('setScene', data)
+		},
+		selectScene({ state, commit }, data) {
+			state.project.scenes.find(scene => {
+				if (scene.name === data.name) {
+					commit('setSelectScene', scene)
+				}
+			})
 		},
 		createCharacter({ commit, state }, data) {
 			let characterExist = false

@@ -39,7 +39,7 @@ export default {
 		text: ''
 	}),
 	computed: {
-		...mapState(['lines', 'characters', 'scenes'])
+		...mapState(['lines', 'characters', 'scenes', 'project'])
 	},
 	methods: {
 		...mapActions(['createLine']),
