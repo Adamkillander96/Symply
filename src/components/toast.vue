@@ -1,5 +1,10 @@
 <template>
-	<b-toast id="toast" title="BootstrapVue" static no-auto-hide
+	<b-toast
+		:value="toast.text"
+		id="toast"
+		title="BootstrapVue"
+		static
+		no-auto-hide
 		>Hello, world! This is a toast message.</b-toast
 	>
 </template>
@@ -9,9 +14,7 @@ import { mapState, mapActions } from 'vuex'
 export default {
 	name: 'Toast',
 	computed: {
-		...mapState({
-			characters: state => state.characters
-		})
+		...mapState(['toast'])
 	},
 	methods: {
 		...mapActions(['createCharacter'])

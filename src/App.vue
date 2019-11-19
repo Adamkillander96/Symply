@@ -4,13 +4,15 @@
 		<main>
 			<router-view />
 		</main>
+		<toast />
 	</div>
 </template>
 
 <script>
 export default {
 	components: {
-		navbar: () => import('./components/nav')
+		navbar: () => import('./components/nav'),
+		toast: () => import('./components/toast')
 	}
 }
 </script>

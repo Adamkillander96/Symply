@@ -8,7 +8,13 @@
 		</b-jumbotron>
 		<b-container>
 			<b-row v-for="line in lines" :key="line.key">
-				<b-col class="shadow-sm p-3 mb-5" lg="8" offset-lg="2" sm="10" offset-sm="1">
+				<b-col
+					class="shadow-sm p-3 mb-5"
+					lg="8"
+					offset-lg="2"
+					sm="10"
+					offset-sm="1"
+				>
 					<h5>{{ line.name }}</h5>
 					{{ line.text }}
 				</b-col>

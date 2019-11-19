@@ -1,6 +1,10 @@
 <template>
-	<b-modal id="characterCreation" title="Skapa karaktär" hide-footer>
-		<b-form-input v-model="character.name" placeholder="Namn" class="mb-3"></b-form-input>
+	<b-card>
+		<b-form-input
+			v-model="character.name"
+			placeholder="Namn"
+			class="mb-3"
+		></b-form-input>
 		<b-form-checkbox v-model="character.real" size="lg" class="mb-3" switch>
 			<span>Ska läsas upp av en person</span>
 		</b-form-checkbox>
@@ -16,7 +20,7 @@
 		>
 			<i class="fad fa-user-plus mr-2"></i> Lägg till
 		</b-button>
-	</b-modal>
+	</b-card>
 </template>
 
 <script>

@@ -2,6 +2,8 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import createPersistedState from 'vuex-persistedstate'
 
+import router from '../router'
+
 Vue.use(Vuex)
 
 export default new Vuex.Store({
@@ -22,7 +24,9 @@ export default new Vuex.Store({
 			state.projects.push(data)
 		},
 		setScene(state, data) {
-			state.project.scenes.push(data)
+			state.project.scenes
+				? state.project.scenes.push(data)
+				: (state.project.scenes = [data])
 		},
 		setSelectScene(state, data) {
 			state.selectedScene = data
@@ -31,7 +35,9 @@ export default new Vuex.Store({
 			state.characters.push(data)
 		},
 		setLine(state, data) {
-			state.lines.push(data)
+			state.project.scenes[data.index].lines
+				? state.project.scenes[data.index].lines.push(data.line)
+				: (state.project.scenes[data.index].lines = [data.line])
 		},
 		setToast(state, data) {
 			state.toast = data
@@ -40,9 +46,11 @@ export default new Vuex.Store({
 	actions: {
 		createProject({ commit }, data) {
 			commit('setProject', data)
+			router.push({ name: 'Scenes' })
 		},
-		createProjects({ commit }, data) {
-			commit('setProjects', data)
+		saveProject({ commit, state }) {
+			commit('setProjects', state.project)
+			router.push({ name: 'Lines' })
 		},
 		createScene({ commit }, data) {
 			commit('setScene', data)
@@ -75,7 +83,7 @@ export default new Vuex.Store({
 			commit('setLine', data)
 		},
 		createToast({ commit }, data) {
-			commit('setLine', {
+			commit('setToast', {
 				text: data.text,
 				color: data.color,
 				icon: data.icon

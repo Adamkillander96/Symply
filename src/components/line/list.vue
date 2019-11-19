@@ -6,7 +6,12 @@
 				<small>{{ scene.actors.length }} skådespelare</small>
 			</b-button>
 		</b-card-header>
-		<b-collapse :id="`scene-${index}`" visible accordion="my-accordion" role="tabpanel">
+		<b-collapse
+			:id="`scene-${index}`"
+			visible
+			accordion="my-accordion"
+			role="tabpanel"
+		>
 			<b-card-body>
 				<b-list-group v-if="scene.lines">
 					<b-list-group-item v-for="line in scene.lines" :key="line.id">
@@ -16,9 +21,6 @@
 					</b-list-group-item>
 				</b-list-group>
 				<create :scene="scene" :index="index"></create>
-				<b-button v-b-modal.lineCreation variant="success" class="my-3" block>
-					<i class="fad fa-comments mr-2"></i>Skapa repliker
-				</b-button>
 			</b-card-body>
 		</b-collapse>
 	</b-card>

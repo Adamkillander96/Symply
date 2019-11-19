@@ -1,5 +1,5 @@
 <template>
-	<b-list-group class="mb-5" v-if="project.scenes[0]">
+	<b-list-group class="mb-5" v-if="project.scenes">
 		<b-list-group-item
 			v-for="scene in project.scenes"
 			:key="scene.id"

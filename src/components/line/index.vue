@@ -3,7 +3,12 @@
 		<b-row class="justify-content-center">
 			<b-col lg="6">
 				<h3 class="mb-3">Skapa replikerna</h3>
-				<list v-for="(scene, index) in project.scenes" :key="scene.key" :scene="scene" :index="index" />
+				<list
+					v-for="(scene, index) in project.scenes"
+					:key="scene.key"
+					:scene="scene"
+					:index="index"
+				/>
 			</b-col>
 		</b-row>
 	</b-container>

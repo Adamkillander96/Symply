@@ -9,16 +9,26 @@
 				</b-button>
 				<list />
 			</b-col>
+			<b-col lg="6" offset-lg="3" class="text-center">
+				<b-button variant="success" size="lg" @click="saveProject()">
+					<i class="fad fa-save fa-fw mr-2"></i>Spara projekt
+				</b-button>
+			</b-col>
 		</b-row>
 	</b-container>
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 export default {
 	name: 'Scenes',
 	components: {
 		create: () => import(`./create`),
 		list: () => import(`./list`)
+	},
+	methods: {
+		...mapActions(['saveProject'])
 	}
 }
 </script>

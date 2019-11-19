@@ -7,7 +7,7 @@ Vue.use(VueRouter)
 const routes = [
 	{
 		path: '/',
-		name: 'home',
+		name: 'Home',
 		component: Home
 	},
 	{
@@ -17,8 +17,13 @@ const routes = [
 			import(/* webpackChunkName: "dashboard" */ '../views/Dashboard.vue'),
 		children: [
 			{
+				path: 'create',
+				name: 'Create',
+				component: () => import('../components/create')
+			},
+			{
 				path: 'projects',
-				name: 'projects',
+				name: 'Projects',
 				component: () => import('../components/project/index'),
 				meta: {
 					type: 'project'
@@ -26,7 +31,7 @@ const routes = [
 			},
 			{
 				path: 'characters',
-				name: 'characters',
+				name: 'Characters',
 				component: () => import('../components/character/index'),
 				meta: {
 					type: 'character'
@@ -34,7 +39,7 @@ const routes = [
 			},
 			{
 				path: 'scenes',
-				name: 'scenes',
+				name: 'Scenes',
 				component: () => import('../components/scenes/index'),
 				meta: {
 					type: 'scenes'
@@ -42,7 +47,7 @@ const routes = [
 			},
 			{
 				path: 'lines',
-				name: 'lines',
+				name: 'Lines',
 				component: () => import('../components/line/index'),
 				meta: {
 					type: 'line'

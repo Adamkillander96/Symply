@@ -53,7 +53,10 @@ export default {
 				text: this.text
 			}
 
-			this.createLine(newLine)
+			this.createLine({
+				line: newLine,
+				index: this.index
+			})
 			this.text = ''
 		}
 	}
