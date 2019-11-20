@@ -39,3 +39,7 @@ $font-family-monospace: monospace !default;
 
 @import '../node_modules/bootstrap/scss/bootstrap';
 @import '../node_modules/bootstrap-vue/src/index.scss';
+
+@each $color, $value in $theme-colors {
+	@include bg-variant('.bg-#{$color}-darken', darken($value, 10%));
+}

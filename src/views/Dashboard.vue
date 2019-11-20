@@ -1,6 +1,6 @@
 <template>
 	<article class="dashboard">
-		<b-jumbotron>
+		<b-jumbotron tag="header">
 			<b-container>
 				<h1>Dashboard</h1>
 				<p class="lead">Skapa ett projekt.</p>

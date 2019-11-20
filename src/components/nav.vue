@@ -1,5 +1,5 @@
 <template>
-	<b-navbar toggleable="md" id="nav">
+	<b-navbar class="shadow" toggleable="md" id="nav">
 		<b-container>
 			<b-navbar-brand to="/">Symply</b-navbar-brand>
 			<b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
@@ -47,17 +47,17 @@ export default {
 				name: 'Hem',
 				to: 'Home',
 				icon: 'fad fa-home'
+			},
+			{
+				name: 'Träna',
+				to: 'Play',
+				icon: 'fad'
 			}
 		],
 		dropdown: [
-			{
-				name: 'Skapa',
-				icon: 'fad fa-tools',
-				to: 'Create'
-			},
-			{ name: 'Skådespelare', icon: 'fad fa-users', to: 'Characters' },
+			{ name: 'Skapa', icon: 'fad fa-tools', to: 'Create' },
 			{ name: 'Projekt', icon: 'fad fa-chart-network', to: 'Projects' },
-			{ name: 'Scener', icon: 'fad fa-presentation', to: 'Scenes' }
+			{ name: 'Skådespelare', icon: 'fad fa-users', to: 'Characters' }
 		]
 	})
 }

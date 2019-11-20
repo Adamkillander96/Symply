@@ -1,18 +1,20 @@
 <template>
 	<div id="symply">
-		<navbar />
+		<Navbar />
 		<main>
 			<router-view />
 		</main>
-		<toast />
+		<Toast />
+		<Footer />
 	</div>
 </template>
 
 <script>
 export default {
 	components: {
-		navbar: () => import('./components/nav'),
-		toast: () => import('./components/toast')
+		Navbar: () => import('./components/nav'),
+		Toast: () => import('./components/toast'),
+		Footer: () => import('./components/footer')
 	}
 }
 </script>

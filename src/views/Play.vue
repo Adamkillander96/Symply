@@ -1,9 +1,9 @@
 <template>
-	<article class="dashboard">
+	<article class="play">
 		<b-jumbotron>
 			<b-container>
-				<h1>Dashboard</h1>
-				<p class="lead">Text text</p>
+				<h1>Träna repliker</h1>
+				<p class="lead">Välj projekt och träna!</p>
 			</b-container>
 		</b-jumbotron>
 		<b-container>

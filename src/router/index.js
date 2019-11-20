@@ -12,10 +12,14 @@ const routes = [
 	},
 	{
 		path: '/dashboard',
-		name: 'Dashboard',
 		component: () =>
 			import(/* webpackChunkName: "dashboard" */ '../views/Dashboard.vue'),
 		children: [
+			{
+				path: '',
+				name: 'Dashboard',
+				component: () => import('../components/overview')
+			},
 			{
 				path: 'create',
 				name: 'Create',

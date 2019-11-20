@@ -29,7 +29,11 @@
 				>
 					<b-card-body>
 						<b-list-group v-if="scene.lines">
-							<b-list-group-item v-for="line in scene.lines" :key="line.id">
+							<b-list-group-item
+								class="mb-3"
+								v-for="line in scene.lines"
+								:key="line.id"
+							>
 								<b-badge v-if="line.scene">{{ line.scene }}</b-badge>
 								<h5>{{ line.name }}</h5>
 								<p>{{ line.text }}</p>

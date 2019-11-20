@@ -1,5 +1,5 @@
 <template>
-	<b-card>
+	<b-card class="p-0 border-0">
 		<b-form-input
 			v-model="character.name"
 			placeholder="Namn"
