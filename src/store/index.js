@@ -35,9 +35,10 @@ export default new Vuex.Store({
 			state.characters.push(data)
 		},
 		setLine(state, data) {
-			state.project.scenes[data.index].lines
-				? state.project.scenes[data.index].lines.push(data.line)
-				: (state.project.scenes[data.index].lines = [data.line])
+			state.project.scenes[data.index].lines.push(data.line)
+		},
+		setLines(state, data) {
+			state.project.scenes[data.index].lines = []
 		},
 		setToast(state, data) {
 			state.toast = data
@@ -79,8 +80,18 @@ export default new Vuex.Store({
 				})
 			}
 		},
-		createLine({ commit }, data) {
-			commit('setLine', data)
+		createLine({ commit, state }, data) {
+			if (
+				state.project.scenes[data.index] &&
+				state.project.scenes[data.index].lines
+			) {
+				commit('setLine', data)
+			} else {
+				commit('setLines', {
+					index: data.index
+				})
+				commit('setLine', data)
+			}
 		},
 		createToast({ commit }, data) {
 			commit('setToast', {

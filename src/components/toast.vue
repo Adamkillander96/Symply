@@ -1,10 +1,5 @@
 <template>
-	<b-toast
-		:value="toast.text"
-		id="toast"
-		title="BootstrapVue"
-		static
-		no-auto-hide
+	<b-toast :value="toast" id="toast" title="BootstrapVue" static no-auto-hide
 		>Hello, world! This is a toast message.</b-toast
 	>
 </template>

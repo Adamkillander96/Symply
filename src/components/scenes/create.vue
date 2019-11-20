@@ -31,7 +31,8 @@ export default {
 		newScene: {
 			name: '',
 			description: '',
-			actors: []
+			actors: [],
+			lines: []
 		}
 	}),
 	computed: {

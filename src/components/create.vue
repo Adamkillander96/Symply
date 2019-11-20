@@ -46,7 +46,8 @@ export default {
 		project: {
 			name: '',
 			description: '',
-			actors: []
+			actors: [],
+			scenes: []
 		}
 	}),
 	computed: {
