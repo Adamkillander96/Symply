@@ -16,12 +16,12 @@ $blue: #db3069;
 $indigo: #6610f2;
 $purple: #820263;
 $pink: #d84797;
-$red: #db3069;
+$red: #d72638;
 $orange: #fb8b24;
-$yellow: #d84797;
+$yellow: #ed9b40;
 $green: #4e8c33;
-$teal: #04a777;
-$cyan: #6610f2;
+$teal: #0cce6b;
+$cyan: #028090;
 
 $border-radius: 0rem !default;
 $border-radius-lg: 0rem !default;
@@ -36,6 +36,10 @@ $box-shadow-lg: 0 1rem 3rem rgba($black, 0.175) !default;
 $font-family-sans-serif: 'Open Sans', sans-serif !default;
 $headings-font-family: 'Roboto Condensed', sans-serif !default;
 $font-family-monospace: monospace !default;
+
+$theme-colors: (
+	'deep': $indigo
+);
 
 @import '../node_modules/bootstrap/scss/bootstrap';
 @import '../node_modules/bootstrap-vue/src/index.scss';

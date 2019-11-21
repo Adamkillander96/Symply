@@ -56,13 +56,14 @@ const routes = [
 				meta: {
 					type: 'line'
 				}
+			},
+			{
+				path: 'play',
+				name: 'Play',
+				component: () =>
+					import(/* webpackChunkName: "play" */ '../components/play.vue')
 			}
 		]
-	},
-	{
-		path: '/play',
-		name: 'Play',
-		component: () => import(/* webpackChunkName: "play" */ '../views/Play.vue')
 	}
 ]
 

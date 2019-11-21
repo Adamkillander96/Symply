@@ -13,8 +13,12 @@
 						class="border-left bg-primary-darken shadow p-3"
 						v-for="project in projects"
 						:key="project.key"
-						>{{ project.name }}</b-card-text
 					>
+						{{ project.name }}
+						<b-button variant="outline-light" @click="selectProject(project)">
+							<i class="fad fa-pencil fa-fw fa-lg mr-2"></i>Välj
+						</b-button>
+					</b-card-text>
 				</b-card>
 			</b-col>
 			<b-col class="mt-lg-n5 mb-3" lg="6">
@@ -38,13 +42,16 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 export default {
 	data: () => ({
 		items: [{}]
 	}),
 	computed: {
 		...mapState(['characters', 'projects'])
+	},
+	methods: {
+		...mapActions(['selectProject'])
 	}
 }
 </script>

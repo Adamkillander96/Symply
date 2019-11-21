@@ -2,8 +2,10 @@
 	<article class="dashboard">
 		<b-jumbotron tag="header">
 			<b-container>
-				<h1>Dashboard</h1>
-				<p class="lead">Skapa ett projekt.</p>
+				<h1>{{ $route.name }}</h1>
+				<p class="lead" v-if="$route.meta && $route.meta.text">
+					Skapa ett projekt.
+				</p>
 			</b-container>
 		</b-jumbotron>
 		<router-view></router-view>

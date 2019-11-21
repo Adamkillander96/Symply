@@ -10,7 +10,7 @@
 				<small>{{ project.actors.length }} actors</small>
 			</div>
 			<p class="my-2">{{ project.description }}</p>
-			<b-button variant="primary ml-auto" @click="select(project)"
+			<b-button variant="primary ml-auto" @click="selectProject(project)"
 				>Välj</b-button
 			>
 		</b-list-group-item>
@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import { mapState, mapMutations } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 export default {
 	name: 'listProjects',
 	computed: {
@@ -28,11 +28,7 @@ export default {
 		})
 	},
 	methods: {
-		...mapMutations(['setProject']),
-		select(project) {
-			this.setProject(project)
-			this.$router.push({ name: 'Lines' })
-		}
+		...mapActions(['selectProject'])
 	}
 }
 </script>

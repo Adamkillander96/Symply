@@ -49,6 +49,10 @@ export default new Vuex.Store({
 			commit('setProject', data)
 			router.push({ name: 'Scenes' })
 		},
+		selectProject({ commit }, data) {
+			commit('setProject', data)
+			router.push({ name: 'Lines' })
+		},
 		saveProject({ commit, state }) {
 			commit('setProjects', state.project)
 			router.push({ name: 'Lines' })
