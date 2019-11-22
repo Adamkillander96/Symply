@@ -1,5 +1,6 @@
 <template>
 	<b-container>
+		{{ playing }}
 		<b-row>
 			<b-col
 				v-for="scene in project.scenes"
@@ -33,20 +34,28 @@
 import { mapState } from 'vuex'
 export default {
 	name: 'Play',
+	data: () => ({
+		playing: false
+	}),
 	computed: {
 		...mapState(['project', 'characters'])
 	},
 	methods: {
+		togglePlaying(isPlaying) {
+			this.playing = isPlaying
+		},
 		getVoice(name) {
-			return this.characters.find(character => {
-				if (character.name === name) {
-					return character.voice
-				}
-			})
+			return this.characters.find(character => character.name === name)
 		},
 		sayLine(line) {
 			let actor = this.getVoice(line.name)
-			window.responsiveVoice.speak(line.text, actor.voice)
+			if (actor.real) {
+				return
+			}
+			window.responsiveVoice.speak(line.text, actor.voice, {
+				onstart: () => this.togglePlaying(true),
+				onend: () => this.togglePlaying(false)
+			})
 		}
 	}
 }
