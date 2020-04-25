@@ -16,7 +16,7 @@
 				<b-list-group class="border-0">
 					<b-list-group-item
 						class="shadow-sm"
-						@click="sayLine(line)"
+						@click="say_line(line)"
 						v-for="line in scene.lines"
 						:key="line.key"
 						button
@@ -31,24 +31,22 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 export default {
 	name: 'Play',
 	data: () => ({
 		playing: false
 	}),
 	computed: {
-		...mapState(['project', 'characters'])
+		...mapState(['project', 'characters']),
+		...mapGetters(['get_character', 'get_all_characters'])
 	},
 	methods: {
 		togglePlaying(isPlaying) {
 			this.playing = isPlaying
 		},
-		getVoice(name) {
-			return this.characters.find(character => character.name === name)
-		},
-		sayLine(line) {
-			let actor = this.getVoice(line.name)
+		say_line(line) {
+			let actor = this.get_character(line.name)
 			if (actor.real) {
 				return
 			}

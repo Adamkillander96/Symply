@@ -16,58 +16,68 @@ export default new Vuex.Store({
 		lines: [],
 		toast: undefined
 	},
+	getters: {
+		get_character: state => {
+			return character_name => {
+				return state.characters.find(({ name }) => {
+					return name === character_name
+				})
+			}
+		},
+		get_all_characters: state => state.characters
+	},
 	mutations: {
-		setProject(state, data) {
+		set_project(state, data) {
 			state.project = data
 		},
-		setProjects(state, data) {
+		set_projects(state, data) {
 			state.projects.push(data)
 		},
-		setScene(state, data) {
+		set_scene(state, data) {
 			state.project.scenes
 				? state.project.scenes.push(data)
 				: (state.project.scenes = [data])
 		},
-		setSelectScene(state, data) {
+		set_select_scene(state, data) {
 			state.selectedScene = data
 		},
-		setCharacter(state, data) {
+		set_character(state, data) {
 			state.characters.push(data)
 		},
-		setLine(state, data) {
+		set_line(state, data) {
 			state.project.scenes[data.index].lines.push(data.line)
 		},
-		setLines(state, data) {
+		set_lines(state, data) {
 			state.project.scenes[data.index].lines = []
 		},
-		setToast(state, data) {
+		set_toast(state, data) {
 			state.toast = data
 		}
 	},
 	actions: {
-		createProject({ commit }, data) {
-			commit('setProject', data)
+		create_project({ commit }, data) {
+			commit('set_project', data)
 			router.push({ name: 'Scenes' })
 		},
-		selectProject({ commit }, data) {
-			commit('setProject', data)
+		select_project({ commit }, data) {
+			commit('set_project', data)
 			router.push({ name: 'Lines' })
 		},
-		saveProject({ commit, state }) {
-			commit('setProjects', state.project)
+		save_project({ commit, state }) {
+			commit('set_projects', state.project)
 			router.push({ name: 'Lines' })
 		},
-		createScene({ commit }, data) {
-			commit('setScene', data)
+		create_scene({ commit }, data) {
+			commit('set_scene', data)
 		},
-		selectScene({ state, commit }, data) {
+		select_scene({ state, commit }, data) {
 			state.project.scenes.find(scene => {
 				if (scene.name === data.name) {
-					commit('setSelectScene', scene)
+					commit('set_select_scene', scene)
 				}
 			})
 		},
-		createCharacter({ commit, state }, data) {
+		create_character({ commit, state }, data) {
 			let characterExist = false
 			state.characters.filter(character => {
 				if (character.name === data.name) {
@@ -75,30 +85,30 @@ export default new Vuex.Store({
 				}
 			})
 			if (!characterExist) {
-				commit('setCharacter', data)
+				commit('set_character', data)
 			} else {
-				commit('setToast', {
+				commit('set_toast', {
 					text: data.name + ' finns redan!',
 					color: 'warning',
 					icon: 'fad fa-warning'
 				})
 			}
 		},
-		createLine({ commit, state }, data) {
+		create_line({ commit, state }, data) {
 			if (
 				state.project.scenes[data.index] &&
 				state.project.scenes[data.index].lines
 			) {
-				commit('setLine', data)
+				commit('set_line', data)
 			} else {
-				commit('setLines', {
+				commit('set_lines', {
 					index: data.index
 				})
-				commit('setLine', data)
+				commit('set_line', data)
 			}
 		},
-		createToast({ commit }, data) {
-			commit('setToast', {
+		create_toast({ commit }, data) {
+			commit('set_toast', {
 				text: data.text,
 				color: data.color,
 				icon: data.icon

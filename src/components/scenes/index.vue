@@ -10,7 +10,7 @@
 				<list />
 			</b-col>
 			<b-col lg="6" offset-lg="3" class="text-center">
-				<b-button variant="success" size="lg" @click="saveProject()">
+				<b-button variant="success" size="lg" @click="save_project()">
 					<i class="fad fa-save fa-fw mr-2"></i>Spara projekt
 				</b-button>
 			</b-col>
@@ -28,7 +28,7 @@ export default {
 		list: () => import(`./list`)
 	},
 	methods: {
-		...mapActions(['saveProject'])
+		...mapActions(['save_project'])
 	}
 }
 </script>

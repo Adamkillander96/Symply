@@ -26,7 +26,7 @@
 <script>
 import { mapActions, mapState } from 'vuex'
 export default {
-	name: 'createScenes',
+	name: 'create_scenes',
 	data: () => ({
 		newScene: {
 			name: '',
@@ -39,9 +39,9 @@ export default {
 		...mapState(['project', 'scenes'])
 	},
 	methods: {
-		...mapActions(['createScene']),
+		...mapActions(['create_scene']),
 		sendScene(scene) {
-			this.createScene(scene)
+			this.create_scene(scene)
 			this.newScene = {
 				name: '',
 				description: '',

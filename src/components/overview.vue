@@ -15,7 +15,7 @@
 						:key="project.key"
 					>
 						{{ project.name }}
-						<b-button variant="outline-light" @click="selectProject(project)">
+						<b-button variant="outline-light" @click="select_project(project)">
 							<i class="fad fa-pencil fa-fw fa-lg mr-2"></i>Välj
 						</b-button>
 					</b-card-text>
@@ -51,7 +51,7 @@ export default {
 		...mapState(['characters', 'projects'])
 	},
 	methods: {
-		...mapActions(['selectProject'])
+		...mapActions(['select_project'])
 	}
 }
 </script>

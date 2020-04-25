@@ -10,7 +10,7 @@
 				<small>{{ project.actors.length }} actors</small>
 			</div>
 			<p class="my-2">{{ project.description }}</p>
-			<b-button variant="primary ml-auto" @click="selectProject(project)"
+			<b-button variant="primary ml-auto" @click="select_project(project)"
 				>Välj</b-button
 			>
 		</b-list-group-item>
@@ -28,7 +28,7 @@ export default {
 		})
 	},
 	methods: {
-		...mapActions(['selectProject'])
+		...mapActions(['select_project'])
 	}
 }
 </script>

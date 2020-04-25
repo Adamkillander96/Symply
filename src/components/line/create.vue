@@ -6,8 +6,8 @@
 			</b-input-group-prepend>
 
 			<b-form-select
-				v-model="selectedActor"
-				:options="scene.actors"
+				v-model="selected_actor"
+				:options="get_all_characters"
 				value-field="name"
 				text-field="name"
 				id="select-actor"
@@ -33,9 +33,9 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 export default {
-	name: 'createLine',
+	name: 'create_line',
 	props: {
 		scene: {
 			type: Object,
@@ -47,18 +47,21 @@ export default {
 		}
 	},
 	data: () => ({
-		selectedActor: null,
+		selected_actor: null,
 		text: ''
 	}),
+	computed: {
+		...mapGetters(['get_all_characters'])
+	},
 	methods: {
-		...mapActions(['createLine']),
+		...mapActions(['create_line']),
 		sendLine() {
 			let newLine = {
-				name: this.selectedActor,
+				name: this.selected_actor,
 				text: this.text
 			}
 
-			this.createLine({
+			this.create_line({
 				line: newLine,
 				index: this.index
 			})

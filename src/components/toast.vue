@@ -12,7 +12,7 @@ export default {
 		...mapState(['toast'])
 	},
 	methods: {
-		...mapActions(['createCharacter'])
+		...mapActions(['create_character'])
 	}
 }
 </script>

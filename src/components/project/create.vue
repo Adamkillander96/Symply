@@ -26,7 +26,7 @@
 <script>
 import { mapActions, mapState } from 'vuex'
 export default {
-	name: 'createProject',
+	name: 'create_project',
 	data: () => ({
 		project: {
 			name: '',
@@ -39,9 +39,9 @@ export default {
 		...mapState(['characters', 'projects'])
 	},
 	methods: {
-		...mapActions(['createProject']),
+		...mapActions(['create_project']),
 		sendProject() {
-			this.createProject(this.project)
+			this.create_project(this.project)
 			this.project = {
 				name: '',
 				description: '',

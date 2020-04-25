@@ -17,7 +17,7 @@
 					>
 						{{ scene.name }}
 						<b-badge class="align-self-end ml-auto" variant="light"
-							>{{ scene.actors.length }} skådespelare</b-badge
+							>{{ get_all_characters.length }} skådespelare</b-badge
 						>
 					</b-button>
 				</b-card-header>
@@ -48,14 +48,15 @@
 </template>
 
 <script>
-import { mapActions, mapState } from 'vuex'
+import { mapActions, mapState, mapGetters } from 'vuex'
 export default {
 	name: 'listLines',
 	components: {
 		create: () => import(`./create`)
 	},
 	computed: {
-		...mapState(['lines', 'project'])
+		...mapState(['lines', 'project']),
+		...mapGetters(['get_all_characters'])
 	},
 	methods: {
 		...mapActions([''])

@@ -26,7 +26,7 @@
 <script>
 import { mapActions } from 'vuex'
 export default {
-	name: 'createCharacter',
+	name: 'create_character',
 	data: () => ({
 		character: {
 			name: '',
@@ -35,9 +35,9 @@ export default {
 		}
 	}),
 	methods: {
-		...mapActions(['createCharacter']),
+		...mapActions(['create_character']),
 		sendCharacter() {
-			this.createCharacter(this.character)
+			this.create_character(this.character)
 			this.character = {
 				name: '',
 				real: false,

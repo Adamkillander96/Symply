@@ -5,7 +5,7 @@
 			title-html="<i class='fad fa-user-plus fa-fw fa-lg mr-2'></i>Skapa skådespelare"
 			hide-footer
 		>
-			<createCharacters />
+			<create_characters />
 		</b-modal>
 		<label for="name">
 			<i class="fad fa-signature fa-fw fa-lg mr-2"></i>Projektets namn
@@ -43,7 +43,7 @@
 			:disabled="project.name === ''"
 			block
 			variant="success"
-			@click="createProject(project)"
+			@click="create_project(project)"
 		>
 			<i class="fad fa-theater-masks mr-2"></i> Lägg till
 		</b-button>
@@ -54,7 +54,7 @@ import { mapActions, mapState } from 'vuex'
 
 export default {
 	components: {
-		createCharacters: () => import('./character/create')
+		create_characters: () => import('./character/create')
 	},
 	data: () => ({
 		project: {
@@ -68,7 +68,7 @@ export default {
 		...mapState(['characters'])
 	},
 	methods: {
-		...mapActions(['createProject'])
+		...mapActions(['create_project'])
 	}
 }
 </script>
